@@ -5,12 +5,6 @@ def HomePage(request):
 	Parameters = {'Name': 'Akhil', 'Occupation': 'Coder'}
 	return render(request, 'Home.html', Parameters)
 
-def AboutPage(request):
-	return render(request, 'About.html')
-
-def ContactPage(request):
-	return render(request, 'Contact.html')
-
 def FormPage(request):
 	return render(request, 'ResumeForm.html')
 
