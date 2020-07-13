@@ -5,24 +5,112 @@
 </head>
 <body>
 	<h1><center>Enter Details in form</center></h1>
-	<form>
-		<label>Name: </label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Designation: </label>
-		<input type="text" name="Designation" id="CandidateDesignation"><br>
-		<label>Description: </label>
-		<textarea name="Description" id="CandidateDescription" rows="10" cols="100"></textarea><br>
-		<label>Gmail: </label><input type="text" name="Gmail" id="CandidateGmail"><br>
-		<label>Phone Number: </label>
-		<input type="text" name="PhoneNumber" id="CandidatePhoneNumber"><br>
-		<label>Location: </label><input type="text" name="Location" id="CandidateLocation"><br>
-		<label>Linked In: </label><input type="text" name="LinkedIn" id="CandidateLinkedIn"><br>
-		<label>Github: </label><input type="text" name="Github" id="CandidateGithub"><br>
-		<label>Education: </label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Personal Projects: </label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Skills: </label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Achievements: </label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Certificates</label><input type="text" name="Name" id="CandidateName"><br>
-		<label>Interests</label><input type="text" name="Name" id="CandidateName"><br>
+	<form action="/GeneratedResume" method='get'>
+		<label>Name: </label><input type="text" name="Name" id="CandidateName">
+		<br><hr>
+		<label>Designation: </label><input type="text" name="Designation" id="CandidateDesignation">
+		<br><hr>
+		<label>Description: </label><textarea name="Description" id="CandidateDescription" rows="10" cols="100"></textarea>
+		<br><hr>
+		<label>Gmail: </label><input type="text" name="Gmail" id="CandidateGmail">
+		<br><hr>
+		<label>Phone Number: </label><input type="text" name="PhoneNumber" id="CandidatePhoneNumber">
+		<br><hr>
+		<label>Location: </label><input type="text" name="Location" id="CandidateLocation">
+		<br><hr>
+		<label>Linked In: </label><input type="text" name="LinkedIn" id="CandidateLinkedIn">
+		<br><hr>
+		<label>Github: </label><input type="text" name="Github" id="CandidateGithub">
+		<br><hr><hr>
+		<label>Education: </label>
+		<br><br><hr>
+		<label>Field: </label><input type="text" name="Field" id="CandidateField">
+		<br><br>
+		<label>College: </label><input type="text" name="College" id="CandidateCollege">
+		<br><br>
+		<label>Timeline: </label><input type="text" name="StartTime" id="StudyStartTime">&emsp;<input type="text" name="StudyEndTime" id="CandidateGithub">
+		<br><br>
+		<label>Current GPA: </label><input type="text" name="GPA" id="CandidateGPA">
+		<br><br><hr>
+		<label>Field: </label><input type="text" name="Field" id="CandidateField">
+		<br><br>
+		<label>College: </label><input type="text" name="College" id="CandidateCollege">
+		<br><br>
+		<label>Timeline: </label><input type="text" name="StartTime" id="StudyStartTime">&emsp;<input type="text" name="StudyEndTime" id="CandidateGithub">
+		<br><br>
+		<label>Current GPA: </label><input type="text" name="GPA" id="CandidateGPA">
+		<br><br><hr><hr>
+		<label>Personal Projects: </label>
+		<br><br><hr>
+		<label>Heading: </label><input type="text" name="Heading" id="ProjectHeading">
+		<br><br>
+		<label>TimeLine: </label><input type="text" name="Timeline" id="ProjectStartTime">&emsp;<input type="text" name="EndTime" id="ProjectEndTime">
+		<br><br>
+		<label>Description: </label><input type="text" name="Description" id="ProjectDescription">
+		<br><br><hr><br>
+		<label>Heading: </label><input type="text" name="Heading" id="ProjectHeading">
+		<br><br>
+		<label>TimeLine: </label><input type="text" name="Timeline" id="ProjectStartTime">&emsp;<input type="text" name="EndTime" id="ProjectEndTime">
+		<br><br>
+		<label>Description: </label><input type="text" name="Description" id="ProjectDescription">
+		<br><br><hr><hr>
+		<label>Skills: </label>
+		<br><br><hr><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br>
+		<label>Skill: </label><input type="text" name="Skill" id="CandidateSkill">
+		<br><br><hr><hr>
+		<label>Achievements: </label>
+		<br><br><hr><br>
+		<label>Achievement Name: </label><input type="text" name="Heading" id="AchievementHeading">
+		<br><br>
+		<label>Date: </label><input type="text" name="Timeline" id="AchievementDate">
+		<br><br>
+		<label>Achievement Description: </label><input type="text" name="Description" id="AchievementDescription">
+		<br><br><br><hr><br>
+		<label>Achievement Name: </label><input type="text" name="Heading" id="AchievementHeading">
+		<br><br>
+		<label>Date: </label><input type="text" name="Timeline" id="AchievementDate">
+		<br><br>
+		<label>Achievement Description: </label><input type="text" name="Description" id="AchievementDescription">
+		<br><br><hr><hr>
+		<label>Certificates: </label>
+		<br><br><hr>
+		<label>Certificate Heading: </label><input type="text" name="Heading" id="CertificateHeading">
+		<br><br>
+		<label>Certificate TimeLine: </label><input type="text" name="Timeline" id="CertificateStartTime">&emsp;<input type="text" name="EndTime" id="CertificateEndTime">
+		<br><br>
+		<label>Certificate Description: </label><input type="text" name="Description" id="CertificateDescription">
+		<br><br><hr><br>
+		<label>Certificate Heading: </label><input type="text" name="Heading" id="CertificateHeading">
+		<br><br>
+		<label>Certificate TimeLine: </label><input type="text" name="Timeline" id="CertificateStartTime">&emsp;<input type="text" name="EndTime" id="CertificateEndTime">
+		<br><br>
+		<label>Certificate Description: </label><input type="text" name="Description" id="CertificateDescription">
+		<br><br><hr><hr>
+		<label>Interests: </label>
+		<br><br><hr><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br>
+		<label>Interest: </label><input type="text" name="Interest" id="CandidateInterest">
+		<br><br><hr><hr>
+		<input type="submit" value="Submit">
 	</form>
 </body>
 </html>
