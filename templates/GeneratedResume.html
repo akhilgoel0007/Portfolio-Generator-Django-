@@ -98,7 +98,38 @@
 				
 				{% if PersonalProjects.Display %}
 					<div class="Candidate-PersonalProjects">
-						
+						<div class="Projects-Heading Candidate-Font"> PERSONAL PROJECTS </div>
+						{% for Project in PersonalProjects.PersonalProjects %}
+							{% if forloop.first %}
+								<div class="Project-Field-First">
+									<div class="Blank-Bar"></div>
+									<div class="Project-Content">
+										<div class="Project-Head Candidate-Font"> {{ Project.Heading }} </div>
+										<div class="Project-TimeLine Candidate-Font"> ({{ Project.StartTime }} – {{ Project.EndTime }}) </div>
+										<div class="Project-Body">
+											<div class="Dot-Container"> 
+												<div class="Dot"></div>
+											</div>
+											<div class="Project-Description Candidate-Font"> {{ Project.Description }} </div>
+										</div>
+									</div>
+								</div>
+							{% else %}
+								<div class="Project-Field">
+									<div class="Blank-Bar"></div>
+									<div class="Project-Content">
+										<div class="Project-Head Candidate-Font"> {{ Project.Heading }} </div>
+										<div class="Project-TimeLine Candidate-Font"> ({{ Project.StartTime }} – {{ Project.EndTime }}) </div>
+										<div class="Project-Body">
+											<div class="Dot-Container"> 
+												<div class="Dot"></div>
+											</div>
+											<div class="Project-Description Candidate-Font"> {{ Project.Description }} </div>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
 					</div>
 				{% endif %}
 			</div>
@@ -129,10 +160,42 @@
 		</div>
 	</body>
 	<style type="text/css">
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-color: grey;
+		}
+
+		.Blank-Bar {
+			height: inherit;
+			width: 60px;
+			float: left;
+			background-color: white;
+		}
+
+		.Blue-Div {
+			height: 14vh;
+			width: 45px;
+			margin-right: 15px;
+			float: left;
+			background-color: #311B92;
+		}
+
+		.Candidate {
+			height: 30vh;
+			width: 100%;
+		}
+
+		.Candidate-General-Info {
+			height: inherit;
+			width: 616.7952px;
+			float: left;
+			padding-top: 30px;
+		}
+
 		.Candidate-PersonalProjects {
 			height: 90vh;
 			width: 100%;
-			background-color: purple;
 		}
 
 		.Candidate-Skills {
@@ -152,68 +215,11 @@
 			height: 32vh;
 			background-color: green;
 		}
+
 		.Candidate-Interests {
 			width: 100%;
 			height: 32vh;
 			background-color: yellow;
-		}
-
-    	body {
-			margin: 0px;
-			padding: 0px;
-			background-color: grey;
-		}
-
-		.LeftSide {
-			float: left;
-			width: 50%;
-			height: 128vh;
-			background-color: blue;
-		}
-
-		/*.RightSide, .LeftSide {
-			float: left;
-			width: 50%;
-			height: 170vh;
-			background-color: lightgreen;
-		}*/
-		.RightSide {
-			float: left;
-			width: 50%;
-			height: 128vh;
-			background-color: lightgreen;
-		}
-
-		.Candidate-Font {
-			font-family: Trebuchet MS;
-		}
-
-		.Paper {
-			margin-left: 15%;
-			width: 70%;
-			background-color: white;
-		}
-
-		.Candidate {
-			height: 30vh;
-			width: 100%;
-			/*background-color: blue;*/
-		}
-
-		.Candidate-General-Info {
-			height: inherit;
-			width: 616.7952px;
-			float: left;
-			padding-top: 30px;
-			/*background-color: yellow;*/
-		}
-
-		.Blue-Div {
-			height: 14vh;
-			width: 45px;
-			margin-right: 15px;
-			float: left;
-			background-color: #311B92;
 		}
 
 		.Candidate-Info {
@@ -227,7 +233,6 @@
 			width: 446.6448px;	
 			float: left;
 			padding-top: 30px;
-			/*background-color: blue;*/
 		}
 
 		.Candidate-Name {
@@ -236,7 +241,6 @@
 			width: 99%;
 			font-size: 45px;
 			letter-spacing: 1px;
-			/*background-color: red;*/
 		}
 
 		.Candidate-Designation {
@@ -244,7 +248,6 @@
 			height: 6vh; 
 			width: 99%;
 			font-size: 25px;
-			/*background-color: grey;*/
 		}
 
 		.Candidate-Description {
@@ -253,7 +256,6 @@
 			padding-right: 10px; 
 			text-align: justify;
 			line-height: 20px;
-			/*background-color: violet;*/
 		}
 
 		.Candidate-Single-Detail {
@@ -261,44 +263,32 @@
 			width: 90%;
 			text-align: right;
 			margin-right: 10px;
-			/*background-color: red;*/
 		}
 
-		.HR-class {
-			height: 2.5px;
+		.Candidate-Font {
+			font-family: Trebuchet MS;
+		}
+
+		.College{
+			height: 40%;
 			width: 100%;
-			border: none;
-			color: skyblue;
-			background-color: skyblue;
-			margin: 0px;
-			padding: 0px;
+			font-size: 25px;
+			font-weight: lighter;
+			line-height: 30px;
 		}
 
-		.Education-Heading {
-			margin-top: 25px;
-			padding-left: 60px;
-			font-size: 27px;
-			font-weight: bold;
-			/*background-color: yellow;*/
+		.Current-GPA {
+			height: 100%;
+			width: 49%;
+			font-size: 13.5px;
+			float: left;
+			text-align: right;
+			font-style: italic;
+			color: #00BFA5;
 		}
 
 		.Candidate-Education {
 			width: 100%;
-			/*background-color: red;*/
-		}
-
-		.Education-Field-First {
-			margin-top: 5px;
-			height: 12vh;
-			width: 100%;
-			/*background-color: green;*/
-		}
-
-		.Education-Field {
-			margin-top: 40px;
-			height: 12vh;
-			width: 100%;
-			/*background-color: green;*/
 		}
 
 		.Colored-Bar {
@@ -307,6 +297,40 @@
 			margin-right: 15px;
 			float: left;
 			background-color: #00BFA5;
+		}
+
+		.Dot-Container {
+			width: calc(5% - 6px);
+			height: calc(100% - 5px);
+			float: left;
+			padding-top: 5px;
+			padding-left: 6px; 
+		}
+
+		.Dot {
+			height: 10px;
+			width: 10px;
+			border-radius: 100%;
+			background-color: skyblue;
+		}
+
+		.Education-Field-First {
+			margin-top: 5px;
+			height: 12vh;
+			width: 100%;
+		}
+
+		.Education-Heading, .Projects-Heading {
+			margin-top: 25px;
+			padding-left: 60px;
+			font-size: 27px;
+			font-weight: bold;
+		}
+
+		.Education-Field {
+			margin-top: 40px;
+			height: 12vh;
+			width: 100%;
 		}
 
 		.Field-Content {
@@ -321,21 +345,95 @@
 			font-size: 25px;
 			font-weight: bolder;
 			line-height: 40px;
-			/*background-color: yellow;*/
 		}
 
-		.College{
-			height: 40%;
+		.HR-class {
+			height: 2.5px;
 			width: 100%;
-			font-size: 25px;
-			font-weight: lighter;
-			line-height: 30px;
-			/*background-color: lightgreen;*/
-		} 
+			border: none;
+			color: skyblue;
+			background-color: skyblue;
+			margin: 0px;
+			padding: 0px;
+		}
 
 		.LastAttributes {
 			height: 20%;
 			width: 100%;
+		}
+
+		.Paper {
+			margin-left: 15%;
+			width: 70%;
+			height: 165vh;
+			background-color: white;
+		}
+
+		.Project-Field-First {
+			margin-top: 10px;
+			height: 20vh;
+			width: 100%;
+		}
+
+		.Project-Field {
+			margin-top: 20px;
+			height: 20vh;
+			width: 100%;
+		}
+
+
+		.Project-Content {
+			height: inherit;
+			width: 88.71%;
+			float: left;
+		}
+
+		.Project-Head {
+			height: 21%;
+			width: 100%;
+			font-size: 25px;
+			font-weight: 400;
+			line-height: 35px;
+		}
+
+		.Project-TimeLine {
+			height: 15.5%;
+			width: 100%;
+			font-size: 16px;
+			font-weight: lighter;
+			line-height: 20px;
+		}
+
+		.Project-Body {
+			height: 63.5%;
+			width: 100%;
+			font-size: 14px;
+		}
+
+		.Project-Description {
+			width: 93%;
+			height: 100%;
+			float: left;
+			text-align: justify;
+			line-height: 17px;
+		}
+
+		.LeftSide {
+			float: left;
+			width: 50%;
+			height: 128vh;
+		}
+
+		/*.RightSide, .LeftSide {
+			float: left;
+			width: 50%;
+			height: 170vh;
+			background-color: lightgreen;
+		}*/
+		.RightSide {
+			float: left;
+			width: 50%;
+			height: 128vh;
 		}
 
 		.TimeLine {
@@ -346,19 +444,7 @@
 			text-align: left;
 			font-style: italic;
 			color: #00BFA5;
-			/*background-color: orange;*/
-		}
-
-		.Current-GPA {
-			height: 100%;
-			width: 49%;
-			font-size: 13.5px;
-			float: left;
-			text-align: right;
-			font-style: italic;
-			color: #00BFA5;
-			/*background-color: grey;*/
-		}
+		}		 
 
     </style>
 </html>
