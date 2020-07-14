@@ -80,7 +80,7 @@ def HomePage(request):
 	return render(request, 'Home.html', Parameters)
 
 def FormPage(request):
-	return render(request, 'ResumeForm.html')
+	return render(request, 'ResumeForm3.html')
 
 def GeneratedResume(request):
 	Name = request.GET.get('Name', 'default') # Candidate Name
@@ -185,7 +185,7 @@ def GeneratedResume(request):
 	Certifications = [
 		{
 			'Heading': 'Algorithmic Toolbox course',
-			'StartTime': ' 12/2019',
+			'StartTime': '12/2019',
 			'EndTime': '01/2020',
 			'Description': 'Course on Mathematical aspect of algorithms and their implementation'
 		},
@@ -230,7 +230,7 @@ def GeneratedResume(request):
 		'PersonalProjects': PersonalProjects,
 		'Skills': Skills,
 		'Achievements': Achievements,
-		'Certifications': Certifictions,
+		'Certifications': Certifications,
 		'Interest': Interest
 	}
 
