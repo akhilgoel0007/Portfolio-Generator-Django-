@@ -5,7 +5,15 @@
 </head>
 <body>
 	<h1><center>Enter Details in form</center></h1>
-	<form action="/GeneratedResume" method='get'>
+	
+	<!-- 
+		Post Metod is used to Hide the Data which is being passed from the form to the backend and prevent the 
+		data from being visisble in the url..  {% csrf_token %} -> this is required when we are using post request, 
+		this is used for verification of form 
+	-->
+
+	<form action="/GeneratedResume" method='POST'>
+		{% csrf_token %}
 		<label>Name: </label><input type="text" name="Name" id="CandidateName">
 		<br><hr>
 		<label>Designation: </label><input type="text" name="Designation" id="CandidateDesignation">
