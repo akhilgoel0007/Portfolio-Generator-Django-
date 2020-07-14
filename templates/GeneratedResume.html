@@ -5,45 +5,77 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>This is Resume Page</title>
-	    <link rel="stylesheet" href="{% static '/css/GeneratedResume.css' %}">
-	    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- Font Awesome 5 -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- Google Icons -->
+		<!-- <link rel="stylesheet" href="{% static '/css/GeneratedResume.css' %}"> -->
+	    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 	    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
 	</head>
 	<body>
-		<div class="Paper" id='app'>
+		<div class="Paper">
 			<div class='Candidate'>
 				<div class='Candidate-General-Info'>
 					<div class="Blue-Div"></div>
 					<div class="Candidate-Info">
-						<!-- <div class='Candidate-Name Candidate-Font'>Akhil Goel</div> -->
 						<div class='Candidate-Name Candidate-Font'>{{ Name }}</div>
-						<div class='Candidate-Designation Candidate-Font'>{{ Designation }}</div>
-						<div class='Candidate-Description Candidate-Font'>{{ Description }}</div>
+						{% if Designation.Display %}
+							<div class='Candidate-Designation Candidate-Font'>{{ Designation.Designation }}</div>
+						{% endif %}
+
+						{% if Description.Display %}
+							<div class='Candidate-Description Candidate-Font'>{{ Description.Description }}</div>
+						{% endif %}
 					</div>
 				</div>
 				<div class='Candidate-Details'>
-					{% for Detail in Details %}
-						<div class='Candidate-Single-Detail'>{{Detail}}</div>
-					{% endfor %}
+					{% if Gmail.Display %}
+						<div class='Candidate-Single-Detail Candidate-Font'>
+							{{ Gmail.Gmail }}&ensp;<i class='fas fa-mail-bulk'></i>
+						</div>
+					{% endif %}
+
+					{% if PhoneNumber.Display %}
+						<div class='Candidate-Single-Detail Candidate-Font'>
+							{{ PhoneNumber.PhoneNumber }}&ensp;<i class='fas fa-mobile-alt'></i>
+						</div>
+					{% endif %}
+
+					{% if Location.Display %}
+						<div class='Candidate-Single-Detail Candidate-Font'>
+							{{ Location.Location }}&ensp;<i class='fas fa-search-location'></i>
+						</div>
+					{% endif %}
+
+					{% if LinkedIn.Display %}
+						<div class='Candidate-Single-Detail Candidate-Font'>
+							{{ LinkedIn.LinkedIn }}&ensp;<i class='fab fa-linkedin-in'></i>
+						</div>
+					{% endif %}
+
+					{% if Github.Display %}
+						<div class='Candidate-Single-Detail Candidate-Font'>
+							{{ Github.Github }}&ensp;<i class='fab fa-github'></i>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 			<hr class="HR-class">
 		</div>
 	</body>
 	<script>
-		var app = new Vue({
-			delimiters: ['[[',']]'],
-			el: '#app',
-			data: {
-				Contacts: [
-					'akhilgoeljan@gmail.com',
-					'0941757493',
-					'Chandigarh, India',
-					'linkedin.com/in/akhil-goel-a5a666176',
-					'github.com/akhilgoel0007'
-				]
-			},
-		});
+		// var app = new Vue({
+		// 	delimiters: ['[[',']]'],
+		// 	el: '#app',
+		// 	data: {
+		// 		Contacts: [
+		// 			'akhilgoeljan@gmail.com',
+		// 			'0941757493',
+		// 			'Chandigarh, India',
+		// 			'linkedin.com/in/akhil-goel-a5a666176',
+		// 			'github.com/akhilgoel0007'
+		// 		]
+		// 	},
+		// });
 	</script>
 	<style type="text/css">
     	body {
@@ -53,7 +85,7 @@
 		}
 
 		.Candidate-Font {
-			font-family: comic sans MS;
+			font-family: Trebuchet MS;
 		}
 
 		.Paper {
@@ -81,8 +113,8 @@
 			height: 14vh;
 			width: 45px;
 			margin-right: 15px;
-			background-color: indigo;
 			float: left;
+			background-color: indigo;
 		}
 
 		.Candidate-Info {
@@ -96,7 +128,7 @@
 			width: 446.6448px;	
 			float: left;
 			padding-top: 30px;
-			background-color: blue;
+			/*background-color: blue;*/
 		}
 
 		.Candidate-Name {
@@ -127,17 +159,17 @@
 
 		.Candidate-Single-Detail {
 			height: 5vh;
-			width: 100%;
-			background-color: red;
+			width: 90%;
 			text-align: right;
 			margin-right: 10px;
+			/*background-color: red;*/
 		}
 
 		.HR-class {
-			background-color: skyblue;
 			height: 2.5px;
 			width: 100%;
 			border: none;
+			background-color: skyblue;
 		}
     </style>
 </html>

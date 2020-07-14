@@ -83,63 +83,69 @@ def FormPage(request):
 	return render(request, 'ResumeForm.html')
 
 def GeneratedResume(request):
-	GotName = request.GET.get('Name', 'default') # Candidate Name
-	GotDesignation = DisplayConfigure('Designation', request.GET.get('Designation', 'default')) # Candidate Designation
-	print(f"Designation:{GotDesignation}")
-	GotDescription = DisplayConfigure('Description', request.GET.get('Description', 'default')) # Candidate Description
-	GotGmail = DisplayConfigure('Gmail', request.GET.get('Gmail', 'default')) # Candidate Gmail
-	GotPhoneNumber = DisplayConfigure('PhoneNumber', request.GET.get('PhoneNumber', 'default')) # Candidate Phone Number
-	GotLocation = DisplayConfigure('Location', request.GET.get('Location', 'default')) # Candidate Location
-	GotLinkedIn = DisplayConfigure('LinkedIn', request.GET.get('LinkedIn', 'default')) # Candidate Linked In
-	GotGithub = DisplayConfigure('Github', request.GET.get('Github', 'default')) # Candidate Github
+	Name = request.GET.get('Name', 'default') # Candidate Name
+	Designation = DisplayConfigure('Designation', request.GET.get('Designation', 'default')) # Candidate Designation
+	Description = DisplayConfigure('Description', request.GET.get('Description', 'default')) # Candidate Description
+	Gmail = DisplayConfigure('Gmail', request.GET.get('Gmail', 'default')) # Candidate Gmail
+	PhoneNumber = DisplayConfigure('PhoneNumber', request.GET.get('PhoneNumber', 'default')) # Candidate Phone Number
+	Location = DisplayConfigure('Location', request.GET.get('Location', 'default')) # Candidate Location
+	LinkedIn = DisplayConfigure('LinkedIn', request.GET.get('LinkedIn', 'default')) # Candidate Linked In
+	Github = DisplayConfigure('Github', request.GET.get('Github', 'default')) # Candidate Github
 
 	# Candidate Skill Set
-	GotSkills = DisplayConfigure('Skills', RefineList(request.GET.getlist('Skill', 'default'))) 
-	# print(f"Skills: {GotSkills}")
+	Skills = DisplayConfigure('Skills', RefineList(request.GET.getlist('Skill', 'default'))) 
+
 	# Candidate Interest Set
-	GotInterest = DisplayConfigure('Interests', RefineList(request.GET.getlist('Interest', 'default'))) 
+	Interest = DisplayConfigure('Interests', RefineList(request.GET.getlist('Interest', 'default'))) 
 
 	# Get All The Education Fields..
-	GotEducation = DisplayConfigure('Education', EducationData(RefineList(request.GET.getlist('Field', 'default')), RefineList(request.GET.getlist('College', 'default')), RefineList(request.GET.getlist('StudyStartTime', 'default')), RefineList(request.GET.getlist('StudyEndTime', 'default')), RefineList(request.GET.getlist('GPA', 'default'))))
-	# print(f"Education: {GotEducation}")
+	Education = DisplayConfigure('Education', EducationData(RefineList(request.GET.getlist('Field', 'default')), RefineList(request.GET.getlist('College', 'default')), RefineList(request.GET.getlist('StudyStartTime', 'default')), RefineList(request.GET.getlist('StudyEndTime', 'default')), RefineList(request.GET.getlist('GPA', 'default'))))
+	
 	# Get All The Personal Projects..
-	GotPersonalProjects = DisplayConfigure('PersonalProjects', ProjectData(RefineList(request.GET.getlist('ProjectHeading', 'default')), RefineList(request.GET.getlist('ProjectStartTime', 'default')), RefineList(request.GET.getlist('ProjectEndTime', 'default')), RefineList(request.GET.getlist('ProjectDescription', 'default'))))
+	PersonalProjects = DisplayConfigure('PersonalProjects', ProjectData(RefineList(request.GET.getlist('ProjectHeading', 'default')), RefineList(request.GET.getlist('ProjectStartTime', 'default')), RefineList(request.GET.getlist('ProjectEndTime', 'default')), RefineList(request.GET.getlist('ProjectDescription', 'default'))))
 	
 	# Get All The Achievements..
-	GotAchievements = DisplayConfigure('Achievements', AchievementData(RefineList(request.GET.getlist('AchievementHeading', 'default')), RefineList(request.GET.getlist('AchievementDate', 'default')), RefineList(request.GET.getlist('AchievementDescription', 'default'))))
+	Achievements = DisplayConfigure('Achievements', AchievementData(RefineList(request.GET.getlist('AchievementHeading', 'default')), RefineList(request.GET.getlist('AchievementDate', 'default')), RefineList(request.GET.getlist('AchievementDescription', 'default'))))
 	
 	# Get All The Certifications..
-	GotCertifictions = DisplayConfigure('Certifications', CertificateData(RefineList(request.GET.getlist('CertificateHeading', 'default')), RefineList(request.GET.getlist('CertificateStartTime', 'default')), RefineList(request.GET.getlist('CertificateEndTime', 'default')), RefineList(request.GET.getlist('CertificateDescription', 'default'))))
+	Certifictions = DisplayConfigure('Certifications', CertificateData(RefineList(request.GET.getlist('CertificateHeading', 'default')), RefineList(request.GET.getlist('CertificateStartTime', 'default')), RefineList(request.GET.getlist('CertificateEndTime', 'default')), RefineList(request.GET.getlist('CertificateDescription', 'default'))))
 
-	GetParameters = {
-		'Name': GotName,
-		'Designation': GotDesignation,
-		'Description': GotDescription,
-		'Gmail': GotGmail,
-		'PhoneNumber': GotPhoneNumber,
-		'Location': GotLocation,
-		'LinkedIn': GotLinkedIn,
-		'Github': GotGithub,
-		'Skills': GotSkills,
-		'Interests': GotInterest,
-		'Education': GotEducation,
-		'PersonalProjects': GotPersonalProjects,
-		'Achievements': GotAchievements,
-		'Certifications': GotCertifictions
-	}
-
-	Name = 'Akhil Goel'
-	Designation = 'Electrical Engineering Undergraduate'
-	Description = '''I am a 2nd year Electrical Engineering student with a good
-					command over programming languages. A programming Enthusiast
-					with a sheer will to learn and grow in the field of programming'''
-	# Details = ['akhilgoeljan@gmail.com', '0941757493', 'Chandigarh, India', 'linkedin.com/in/akhil-goel-a5a666176', 'github.com/akhilgoel0007']
-	Details = []
 	Parameters = {
 		'Name': Name,
 		'Designation': Designation,
 		'Description': Description,
-		'Details': Details
+		'Gmail': Gmail,
+		'PhoneNumber': PhoneNumber,
+		'Location': Location,
+		'LinkedIn': LinkedIn,
+		'Github': Github,
+		'Skills': Skills,
+		'Interests': Interest,
+		'Education': Education,
+		'PersonalProjects': PersonalProjects,
+		'Achievements': Achievements,
+		'Certifications': Certifictions
 	}
 
+	# Name = 'Akhil Goel'
+	# Designation = 'Electrical Engineering Undergraduate'
+	# Description = '''I am a 2nd year Electrical Engineering student with a good command over programming languages. A programming Enthusiast with a sheer will to learn and grow in the field of programming'''
+	# Gmail = {'Display': True, 'Value': 'akhilgoeljan@gmail.com'}
+	# PhoneNumber = {'Display': True, 'Value': '0941757493'} 
+	# Location = {'Display': True, 'Value': 'Chandigarh, India'} 
+	# LinkedIn = {'Display': True, 'Value': 'linkedin.com/in/akhil-goel-a5a666176'} 
+	# Github = {'Display': True, 'Value': 'github.com/akhilgoel0007'}
+	
+	# NewParameters = {
+	# 	'Name': Name,
+	# 	'Designation': Designation,
+	# 	'Description': Description,
+	# 	'Gmail': Gmail,
+	# 	'PhoneNumber': PhoneNumber,
+	# 	'Location': Location,
+	# 	'LinkedIn': LinkedIn,
+	# 	'Github': Github,
+	# }
+
+	# return render(request, 'GeneratedResume.html', NewParameters)
 	return render(request, 'GeneratedResume.html', Parameters)
