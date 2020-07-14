@@ -8,5 +8,3 @@ urlpatterns = [
     path('form', views.FormPage, name='ResumeForm'),
     path('GeneratedResume', views.GeneratedResume, name='GeneratedResume')
 ]
-
-urlpatterns += staticfiles_urlpatterns() # It will work only in debug mode not in production mode

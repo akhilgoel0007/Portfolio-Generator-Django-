@@ -1,295 +1,220 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>FORM</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body,
-        h1,
-        h3,
-        label {
-            font-family: "Lato", sans-serif
-        }
-        
-        body {
-            background-color: gray;
-        }
-        
-        .w3-bar,
-        h1,
-        button {
-            font-family: "Montserrat", sans-serif
-        }
-    </style>
+    <title></title>
 </head>
-
 <body>
-    <header class="w3-container w3-black w3-center" style="padding:88px 16px" id="HomeView">
-        <h1 class="w3-margin w3-jumbo">
-            Fill the Details in the Form
-        </h1>
-    </header>
+    <h1><center>Enter Details in form</center></h1>
+    
+    <!-- 
+        Post Metod is used to Hide the Data which is being passed from the form to the backend and prevent the 
+        data from being visisble in the url..  {% csrf_token %} -> this is required when we are using post request, 
+        this is used for verification of form 
+    -->
 
-    <div class="w3-container w3-content w3-padding-64">
-        <form action="/GeneratedResume" method='POST'>
-            {% csrf_token %}
-            <h3 class="w3-center">Personal Information</h3>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Name: </label> &emsp;<input class="w3-twothird w3-right" type="text" name="Name" id="CandidateName">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Designation: </label><input class="w3-twothird w3-right" type="text" name="Designation" id="CandidateDesignation">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Description: </label><textarea class="w3-twothird w3-right" name="Description" id="CandidateDescription" rows="10" cols="100"></textarea>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Gmail: </label><input class="w3-twothird w3-right" type="text" name="Gmail" id="CandidateGmail">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Phone Number: </label><input class="w3-twothird w3-right" type="text" name="PhoneNumber" id="CandidatePhoneNumber">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Location: </label><input class="w3-twothird w3-right" type="text" name="Location" id="CandidateLocation">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Linked In: </label><input class="w3-twothird w3-right" type="text" name="LinkedIn" id="CandidateLinkedIn">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Github: </label><input class="w3-twothird w3-right" type="text" name="Github" id="CandidateGithub">
-            <br>
-            <hr>
+    <form action="/GeneratedResume" method='POST'>
+        {% csrf_token %}
+        <label>Name: </label><input type="text" name="Name" id="CandidateName">
+        <br><hr>
+        <label>Designation: </label><input type="text" name="Designation" id="CandidateDesignation">
+        <br><hr>
+        <label>Description: </label><textarea name="Description" id="CandidateDescription" rows="10" cols="100"></textarea>
+        <br><hr>
+        <label>Gmail: </label><input type="text" name="Gmail" id="CandidateGmail">
+        <br><hr>
+        <label>Phone Number: </label><input type="text" name="PhoneNumber" id="CandidatePhoneNumber">
+        <br><hr>
+        <label>Location: </label><input type="text" name="Location" id="CandidateLocation">
+        <br><hr>
+        <label>Linked In: </label><input type="text" name="LinkedIn" id="CandidateLinkedIn">
+        <br><hr>
+        <label>Github: </label><input type="text" name="Github" id="CandidateGithub">
+        <br><hr><hr>
 
-            <h3 class="w3-center">Education: </h3>
-            <hr>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Class: </label><input class="w3-twothird w3-right" type="text" name="Field" id="CandidateField">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">School: </label><input class="w3-twothird w3-right" type="text" name="College" id="CandidateCollege">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Timeline: </label>
-            <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-left" type="text" name="StudyStartTime" id="StudyStartTime">&emsp;<input class="w3-third w3-right" type="text" name="StudyEndTime" id="CandidateGithub">
-			</span><br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Score: </label><input class="w3-twothird w3-right" type="text" name="GPA" id="CandidateGPA">
-            <br><br>
-            <hr>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Stream: </label><input class="w3-twothird w3-right" type="text" name="Field" id="CandidateField">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">School: </label><input class="w3-twothird w3-right" type="text" name="College" id="CandidateCollege">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Timeline: </label>
-            <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-left" type="text"
-            		name="StudyStartTime" id="StudyStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="StudyEndTime" id="CandidateGithub">
-            </span><br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Score: </label><input class="w3-twothird w3-right" type="text" name="GPA" id="CandidateGPA">
-            <br><br>
-            <hr>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Field: </label><input class="w3-twothird w3-right" type="text" name="Field" id="CandidateField">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">College: </label><input class="w3-twothird w3-right" type="text" name="College" id="CandidateCollege">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Timeline: </label>
-            <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-left" type="text"
-            		name="StudyStartTime" id="StudyStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="StudyEndTime" id="CandidateGithub">
-            </span><br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Current GPA: </label><input class="w3-twothird w3-right" type="text" name="GPA" id="CandidateGPA">
-            <br><br>
-            <hr>
 
-            <h3 class="w3-center">Personal Projects: </h3>
-            <hr>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Heading: </label><input class="w3-twothird w3-right" type="text" name="ProjectHeading" id="ProjectHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">TimeLine: </label> <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="ProjectStartTime" id="ProjectStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="ProjectEndTime" id="ProjectEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Description: </label><input class="w3-twothird w3-right" type="text" name="ProjectDescription" id="ProjectDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Heading: </label><input class="w3-twothird w3-right" type="text" name="ProjectHeading" id="ProjectHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">TimeLine: </label> <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="ProjectStartTime" id="ProjectStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="ProjectEndTime" id="ProjectEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Description: </label><input class="w3-twothird w3-right" type="text" name="ProjectDescription" id="ProjectDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Heading: </label><input class="w3-twothird w3-right" type="text" name="ProjectHeading" id="ProjectHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">TimeLine: </label> <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="ProjectStartTime" id="ProjectStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="ProjectEndTime" id="ProjectEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Description: </label><input class="w3-twothird w3-right" type="text" name="ProjectDescription" id="ProjectDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Heading: </label><input class="w3-twothird w3-right" type="text" name="ProjectHeading" id="ProjectHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">TimeLine: </label> <span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="ProjectStartTime" id="ProjectStartTime">&emsp;<input class="w3-third w3-right" type="text"
-            		name="ProjectEndTime" id="ProjectEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Description: </label><input class="w3-twothird w3-right" type="text" name="ProjectDescription" id="ProjectDescription">
-            <br><br>
-            <hr>
 
-            <h3 class="w3-center">Skills: </h3>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 1: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill1">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 2: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill2">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 3: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill3">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 4: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill4">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 5: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill5">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 6: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill6">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 7: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill7">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 8: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill8">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 9: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill9">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Skill 10: </label><input class="w3-twothird w3-right" type="text" name="Skill" id="CandidateSkill10">
-            <br><br>
-            <hr>
 
-            <h3 class="w3-center">Achievements: </h3>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Name: </label><input class="w3-twothird w3-right" type="text" name="AchievementHeading" id="AchievementHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Date: </label><input class="w3-twothird w3-right" type="text" name="AchievementDate" id="AchievementDate">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Description: </label><input class="w3-twothird w3-right" type="text" name="AchievementDescription" id="AchievementDescription">
-            <br><br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Name: </label><input class="w3-twothird w3-right" type="text" name="AchievementHeading" id="AchievementHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Date: </label><input class="w3-twothird w3-right" type="text" name="AchievementDate" id="AchievementDate">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Description: </label><input class="w3-twothird w3-right" type="text" name="AchievementDescription" id="AchievementDescription">
-            <br><br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Name: </label><input class="w3-twothird w3-right" type="text" name="AchievementHeading" id="AchievementHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Date: </label><input class="w3-twothird w3-right" type="text" name="AchievementDate" id="AchievementDate">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Description: </label><input class="w3-twothird w3-right" ype="text" name="AchievementDescription" id="AchievementDescription">
-            <br><br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Name: </label><input class="w3-twothird w3-right" type="text" name="AchievementHeading" id="AchievementHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Date: </label><input class="w3-twothird w3-right" type="text" name="AchievementDate" id="AchievementDate">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Achievement Description: </label><input class="w3-twothird w3-right" type="text" name="AchievementDescription" id="AchievementDescription">
-            <br><br><br>
-            <hr><br>
-            <br><br>
-            <hr>
+        <label>Education: </label>
+        <br><br><hr>
+        <label>Field: </label><input type="text" name="Field" id="CandidateField">
+        <br><br>
+        <label>College: </label><input type="text" name="College" id="CandidateCollege">
+        <br><br>
+        <label>Timeline: </label><input type="text" name="StudyStartTime" id="StudyStartTime">&emsp;<input type="text" name="StudyEndTime" id="CandidateGithub">
+        <br><br>
+        <label>Current GPA: </label><input type="text" name="GPA" id="CandidateGPA">
+        <br><br><hr>
+        <label>Field: </label><input type="text" name="Field" id="CandidateField">
+        <br><br>
+        <label>College: </label><input type="text" name="College" id="CandidateCollege">
+        <br><br>
+        <label>Timeline: </label><input type="text" name="StudyStartTime" id="StudyStartTime">&emsp;<input type="text" name="StudyEndTime" id="CandidateGithub">
+        <br><br>
+        <label>Current GPA: </label><input type="text" name="GPA" id="CandidateGPA">
+        <br><br><hr>
+        <label>Field: </label><input type="text" name="Field" id="CandidateField">
+        <br><br>
+        <label>College: </label><input type="text" name="College" id="CandidateCollege">
+        <br><br>
+        <label>Timeline: </label><input type="text" name="StudyStartTime" id="StudyStartTime">&emsp;<input type="text" name="StudyEndTime" id="CandidateGithub">
+        <br><br>
+        <label>Current GPA: </label><input type="text" name="GPA" id="CandidateGPA">
+        <br><br><hr><hr>
 
-            <h3 class="w3-center">Certificates: </h3>
-            <hr>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">>Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Heading: </label><input class="w3-twothird w3-right" type="text" name="CertificateHeading" id="CertificateHeading">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate TimeLine: </label><span class="w3-twothird w3-right w3-content"><input class="w3-third w3-center" type="text"
-            		name="CertificateStartTime" id="CertificateStartTime">&emsp;<input class="w3-third w3-right"
-            		type="text" name="CertificateEndTime" id="CertificateEndTime"></span>
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Certificate Description: </label><input class="w3-twothird w3-right" type="text" name="CertificateDescription" id="CertificateDescription">
-            <br><br>
-            <hr>
 
-            <h3 class="w3-center">Interests: </h3>
-            <hr><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 1: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest1">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 2: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest2">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 3: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest3">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 4: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest4">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 5: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest5">
-            <br><br>
-            <label class="w3-quarter w3-left w3-row-padding w3-black">Interest 6: </label><input class="w3-twothird w3-right" type="text" name="Interest" id="CandidateInterest6">
-            <br><br>
-            <hr>
 
-            <button class="w3-block w3-btn w3-round-large w3-black w3-section w3-hover-gray" type="submit">SEND</button>
-        </form>
-    </div>
 
-    <!-- Footer -->
-    <footer class="w3-container w3-black w3-padding-64 w3-center w3-opacity">
-        <div class="w3-xlarge w3-padding-25">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-github w3-hover-opacity"></i>
-        </div>
-        <p>Project by
-            <a href="#">
-                <!-- my portfolio link-->Vasu Garg
-            </a>
-        </p>
-    </footer>
+        <label>Personal Projects: </label>
+        <br><br><hr>
+        <label>Heading: </label><input type="text" name="ProjectHeading" id="ProjectHeading">
+        <br><br>
+        <label>TimeLine: </label><input type="text" name="ProjectStartTime" id="ProjectStartTime">&emsp;<input type="text" name="ProjectEndTime" id="ProjectEndTime">
+        <br><br>
+        <label>Description: </label><input type="text" name="ProjectDescription" id="ProjectDescription">
+        <br><br><hr><br>
+        <label>Heading: </label><input type="text" name="ProjectHeading" id="ProjectHeading">
+        <br><br>
+        <label>TimeLine: </label><input type="text" name="ProjectStartTime" id="ProjectStartTime">&emsp;<input type="text" name="ProjectEndTime" id="ProjectEndTime">
+        <br><br>
+        <label>Description: </label><input type="text" name="ProjectDescription" id="ProjectDescription">
+        <br><br><hr><br>
+        <label>Heading: </label><input type="text" name="ProjectHeading" id="ProjectHeading">
+        <br><br>
+        <label>TimeLine: </label><input type="text" name="ProjectStartTime" id="ProjectStartTime">&emsp;<input type="text" name="ProjectEndTime" id="ProjectEndTime">
+        <br><br>
+        <label>Description: </label><input type="text" name="ProjectDescription" id="ProjectDescription">
+        <br><br><hr><br>
+        <label>Heading: </label><input type="text" name="ProjectHeading" id="ProjectHeading">
+        <br><br>
+        <label>TimeLine: </label><input type="text" name="ProjectStartTime" id="ProjectStartTime">&emsp;<input type="text" name="ProjectEndTime" id="ProjectEndTime">
+        <br><br>
+        <label>Description: </label><input type="text" name="ProjectDescription" id="ProjectDescription">
+        <br><br><hr><hr>
 
+
+
+
+        <label>Skills: </label>
+        <br><br><hr><br>
+        <label>Skill 1: </label><input type="text" name="Skill" id="CandidateSkill1">
+        <br><br>
+        <label>Skill 2: </label><input type="text" name="Skill" id="CandidateSkill2">
+        <br><br>
+        <label>Skill 3: </label><input type="text" name="Skill" id="CandidateSkill3">
+        <br><br>
+        <label>Skill 4: </label><input type="text" name="Skill" id="CandidateSkill4">
+        <br><br>
+        <label>Skill 5: </label><input type="text" name="Skill" id="CandidateSkill5">
+        <br><br>
+        <label>Skill 6: </label><input type="text" name="Skill" id="CandidateSkill6">
+        <br><br>
+        <label>Skill 7: </label><input type="text" name="Skill" id="CandidateSkill7">
+        <br><br>
+        <label>Skill 8: </label><input type="text" name="Skill" id="CandidateSkill8">
+        <br><br>
+        <label>Skill 9: </label><input type="text" name="Skill" id="CandidateSkill9">
+        <br><br>
+        <label>Skill 10: </label><input type="text" name="Skill" id="CandidateSkill10">
+        <br><br><hr><hr>
+
+
+
+
+        <label>Achievements: </label>
+        <br><br><hr><br>
+        <label>Achievement Name: </label><input type="text" name="AchievementHeading" id="AchievementHeading">
+        <br><br>
+        <label>Date: </label><input type="text" name="AchievementDate" id="AchievementDate">
+        <br><br>
+        <label>Achievement Description: </label><input type="text" name="AchievementDescription" id="AchievementDescription">
+        <br><br><br><hr><br>
+        <label>Achievement Name: </label><input type="text" name="AchievementHeading" id="AchievementHeading">
+        <br><br>
+        <label>Date: </label><input type="text" name="AchievementDate" id="AchievementDate">
+        <br><br>
+        <label>Achievement Description: </label><input type="text" name="AchievementDescription" id="AchievementDescription">
+        <br><br><br><hr><br>
+        <label>Achievement Name: </label><input type="text" name="AchievementHeading" id="AchievementHeading">
+        <br><br>
+        <label>Date: </label><input type="text" name="AchievementDate" id="AchievementDate">
+        <br><br>
+        <label>Achievement Description: </label><input type="text" name="AchievementDescription" id="AchievementDescription">
+        <br><br><br><hr><br>
+        <label>Achievement Name: </label><input type="text" name="AchievementHeading" id="AchievementHeading">
+        <br><br>
+        <label>Date: </label><input type="text" name="AchievementDate" id="AchievementDate">
+        <br><br>
+        <label>Achievement Description: </label><input type="text" name="AchievementDescription" id="AchievementDescription">
+        <br><br><br><hr><br>
+        <br><br><hr><hr>
+
+
+
+
+
+
+        <label>Certificates: </label>
+        <br><br><hr>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><br>
+        <label>Certificate Heading: </label><input type="text" name="CertificateHeading" id="CertificateHeading">
+        <br><br>
+        <label>Certificate TimeLine: </label><input type="text" name="CertificateStartTime" id="CertificateStartTime">&emsp;<input type="text" name="CertificateEndTime" id="CertificateEndTime">
+        <br><br>
+        <label>Certificate Description: </label><input type="text" name="CertificateDescription" id="CertificateDescription">
+        <br><br><hr><hr>
+
+
+
+        <label>Interests: </label>
+        <br><br><hr><br>
+        <label>Interest 1: </label><input type="text" name="Interest" id="CandidateInterest1">
+        <br><br>
+        <label>Interest 2: </label><input type="text" name="Interest" id="CandidateInterest2">
+        <br><br>
+        <label>Interest 3: </label><input type="text" name="Interest" id="CandidateInterest3">
+        <br><br>
+        <label>Interest 4: </label><input type="text" name="Interest" id="CandidateInterest4">
+        <br><br>
+        <label>Interest 5: </label><input type="text" name="Interest" id="CandidateInterest5">
+        <br><br>
+        <label>Interest 6: </label><input type="text" name="Interest" id="CandidateInterest6">
+        <br><br><hr><hr>
+        <input type="submit" value="Submit">
+    </form>
 </body>
-
 </html>
