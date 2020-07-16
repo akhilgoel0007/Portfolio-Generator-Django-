@@ -76,39 +76,38 @@ def CertificateData(Heading, StartTime, EndTime, Description):
 	return AllCertificates
 
 def HomePage(request):
-	Parameters = {'Name': 'Akhil', 'Occupation': 'Coder'}
 	return render(request, 'Home.html', Parameters)
 
 def FormPage(request):
 	return render(request, 'ResumeForm.html')
 
 def GeneratedResume(request):
-	Name = request.GET.get('Name', 'default') # Candidate Name
-	Designation = DisplayConfigure('Designation', request.GET.get('Designation', 'default')) # Candidate Designation
-	Description = DisplayConfigure('Description', request.GET.get('Description', 'default')) # Candidate Description
-	Gmail = DisplayConfigure('Gmail', request.GET.get('Gmail', 'default')) # Candidate Gmail
-	PhoneNumber = DisplayConfigure('PhoneNumber', request.GET.get('PhoneNumber', 'default')) # Candidate Phone Number
-	Location = DisplayConfigure('Location', request.GET.get('Location', 'default')) # Candidate Location
-	LinkedIn = DisplayConfigure('LinkedIn', request.GET.get('LinkedIn', 'default')) # Candidate Linked In
-	Github = DisplayConfigure('Github', request.GET.get('Github', 'default')) # Candidate Github
+	Name = request.POST.get('Name') # Candidate Name
+	Designation = DisplayConfigure('Designation', request.POST.get('Designation', 'default')) # Candidate Designation
+	Description = DisplayConfigure('Description', request.POST.get('Description', 'default')) # Candidate Description
+	Gmail = DisplayConfigure('Gmail', request.POST.get('Gmail', 'default')) # Candidate Gmail
+	PhoneNumber = DisplayConfigure('PhoneNumber', request.POST.get('PhoneNumber', 'default')) # Candidate Phone Number
+	Location = DisplayConfigure('Location', request.POST.get('Location', 'default')) # Candidate Location
+	LinkedIn = DisplayConfigure('LinkedIn', request.POST.get('LinkedIn', 'default')) # Candidate Linked In
+	Github = DisplayConfigure('Github', request.POST.get('Github', 'default')) # Candidate Github
 
 	# Candidate Skill Set
-	Skills = DisplayConfigure('Skills', RefineList(request.GET.getlist('Skill', 'default'))) 
+	Skills = DisplayConfigure('Skills', RefineList(request.POST.getlist('Skill', 'default'))) 
 
 	# Candidate Interest Set
-	Interest = DisplayConfigure('Interest', RefineList(request.GET.getlist('Interest', 'default'))) 
+	Interest = DisplayConfigure('Interest', RefineList(request.POST.getlist('Interest', 'default'))) 
 
 	# Get All The Education Fields..
-	Education = DisplayConfigure('Education', EducationData(RefineList(request.GET.getlist('Field', 'default')), RefineList(request.GET.getlist('College', 'default')), RefineList(request.GET.getlist('StudyStartTime', 'default')), RefineList(request.GET.getlist('StudyEndTime', 'default')), RefineList(request.GET.getlist('GPA', 'default'))))
+	Education = DisplayConfigure('Education', EducationData(RefineList(request.POST.getlist('Field', 'default')), RefineList(request.POST.getlist('College', 'default')), RefineList(request.POST.getlist('StudyStartTime', 'default')), RefineList(request.POST.getlist('StudyEndTime', 'default')), RefineList(request.POST.getlist('GPA', 'default'))))
 
 	# Get All The Personal Projects..
-	PersonalProjects = DisplayConfigure('PersonalProjects', ProjectData(RefineList(request.GET.getlist('ProjectHeading', 'default')), RefineList(request.GET.getlist('ProjectStartTime', 'default')), RefineList(request.GET.getlist('ProjectEndTime', 'default')), RefineList(request.GET.getlist('ProjectDescription', 'default'))))
+	PersonalProjects = DisplayConfigure('PersonalProjects', ProjectData(RefineList(request.POST.getlist('ProjectHeading', 'default')), RefineList(request.POST.getlist('ProjectStartTime', 'default')), RefineList(request.POST.getlist('ProjectEndTime', 'default')), RefineList(request.POST.getlist('ProjectDescription', 'default'))))
 	
 	# Get All The Achievements..
-	Achievements = DisplayConfigure('Achievements', AchievementData(RefineList(request.GET.getlist('AchievementHeading', 'default')), RefineList(request.GET.getlist('AchievementDate', 'default')), RefineList(request.GET.getlist('AchievementDescription', 'default'))))
+	Achievements = DisplayConfigure('Achievements', AchievementData(RefineList(request.POST.getlist('AchievementHeading', 'default')), RefineList(request.POST.getlist('AchievementDate', 'default')), RefineList(request.POST.getlist('AchievementDescription', 'default'))))
 	
 	# Get All The Certifications..
-	Certifications = DisplayConfigure('Certifications', CertificateData(RefineList(request.GET.getlist('CertificateHeading', 'default')), RefineList(request.GET.getlist('CertificateStartTime', 'default')), RefineList(request.GET.getlist('CertificateEndTime', 'default')), RefineList(request.GET.getlist('CertificateDescription', 'default'))))
+	Certifications = DisplayConfigure('Certifications', CertificateData(RefineList(request.POST.getlist('CertificateHeading', 'default')), RefineList(request.POST.getlist('CertificateStartTime', 'default')), RefineList(request.POST.getlist('CertificateEndTime', 'default')), RefineList(request.POST.getlist('CertificateDescription', 'default'))))
 
 	Parameters = {
 		'Name': Name,
@@ -126,7 +125,7 @@ def GeneratedResume(request):
 		'Certifications': Certifications,
 		'Interests': Interest
 	}
-
+	
 	# Name = 'Akhil Goel'
 	# Designation = {'Display': True, 'Designation': 'Electrical Engineering Undergraduate'}
 	# Description = {'Display': True, 'Description': 'I am a 2nd year Electrical Engineering student with a good command over programming languages. A programming Enthusiast with a sheer will to learn and grow in the field of programming'}
